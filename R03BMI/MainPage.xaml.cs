@@ -18,7 +18,22 @@ namespace R03BMI
 
         private void Button_Clicked(object sender, EventArgs e)
         {
+            string Height=heighit.Text;
+            double h=double.Parse(Height);
+            if (h < 10)
+            {
+                h=h/100;
+            }
+           
+            string Weight=weighit.Text;
+            double w=double.Parse(Weight);
+            double cw = Math.Floor(w);
 
+            double bmi = h / Math.Pow(cw, 2);
+
+            String BMI = bmi.ToString();
+
+            result.Text = BMI;
         }
     }
 }
