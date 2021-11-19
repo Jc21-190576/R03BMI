@@ -27,9 +27,9 @@ namespace R03BMI
             }
 
             weight = double.Parse(weighit.Text);
-            if (weight < 10)
+            if (weight > 3000)
             {
-                weight = weight / 100;
+                weight = weight / 1000;
             }
             
             bmi = weight / (height * height);
