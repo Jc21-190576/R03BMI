@@ -13,27 +13,44 @@ namespace R03BMI
         public MainPage()
         {
             InitializeComponent();
-            creater.Text = "JK3A00 野村 竜生";
+            creater.Text = "JK3A30 野村 竜生";
         }
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            string Height=heighit.Text;
-            double h=double.Parse(Height);
-            if (h < 10)
+            double weight, height, bmi;
+
+            height = double.Parse(heighit.Text);
+            if (height < 10)
             {
-                h=h/100;
+                height = height / 100;
             }
-           
-            string Weight=weighit.Text;
-            double w=double.Parse(Weight);
-            double cw = Math.Floor(w);
 
-            double bmi = h / Math.Pow(cw, 2);
+            weight = double.Parse(weighit.Text);
+            if (weight < 10)
+            {
+                weight = weight / 100;
+            }
+            
+            bmi = weight / (height * height);
+            double BMI = Math.Round(bmi);
 
-            String BMI = bmi.ToString();
-
-            result.Text = BMI;
+            if (bmi < 18.5)
+            {
+                result.Text = "身長" + height + ",体重" + weight + "の人のBMIは、" + BMI + "(低体重)です";
+            }
+            else if (bmi < 25)
+            {
+                result.Text = "身長" + height + ",体重" + weight + "の人のBMIは、" + BMI + "(標準)です";
+            }
+            else if (bmi < 30)
+            {
+                result.Text = "身長" + height + ",体重" + weight + "の人のBMIは、" + BMI + "(太り気味)です";
+            }
+            else
+            {
+                result.Text = "身長" + height + ",体重" + weight + "の人のBMIは、" + BMI + "(肥満)です";
+            }
         }
     }
 }
