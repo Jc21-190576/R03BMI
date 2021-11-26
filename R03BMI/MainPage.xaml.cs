@@ -21,13 +21,13 @@ namespace R03BMI
             double weight, height, bmi;
 
             height = double.Parse(heighit.Text);
-            if (height < 10)
+            if (height > 10)
             {
                 height = height / 100;
             }
 
             weight = double.Parse(weighit.Text);
-            if (weight > 3000)
+            if (weight > 1000)
             {
                 weight = weight / 1000;
             }
@@ -37,19 +37,26 @@ namespace R03BMI
 
             if (bmi < 18.5)
             {
-                result.Text = "身長" + height + ",体重" + weight + "の人のBMIは、" + BMI + "(低体重)です";
+                result.Text = "身長" + height + ",体重" + weight + "の人のBMIは、" + BMI + "低体重(瘦せ)です";
             }
             else if (bmi < 25)
             {
-                result.Text = "身長" + height + ",体重" + weight + "の人のBMIは、" + BMI + "(標準)です";
+                result.Text = "身長" + height + ",体重" + weight + "の人のBMIは、" + BMI + "普通体重です";
             }
             else if (bmi < 30)
             {
-                result.Text = "身長" + height + ",体重" + weight + "の人のBMIは、" + BMI + "(太り気味)です";
+                result.Text = "身長" + height + ",体重" + weight + "の人のBMIは、" + BMI + "肥満(1度)です";
+            }
+            else if (bmi < 35)
+            {
+                result.Text = "身長" + height + ",体重" + weight + "の人のBMIは、" + BMI + "肥満(2度)です";
+            }else if (bmi < 40)
+            {
+                result.Text = "身長" + height + ",体重" + weight + "の人のBMIは、" + BMI + "肥満(3度)です";
             }
             else
             {
-                result.Text = "身長" + height + ",体重" + weight + "の人のBMIは、" + BMI + "(肥満)です";
+                result.Text = "身長" + height + ",体重" + weight + "の人のBMIは、" + BMI + "肥満(4度)です";
             }
         }
     }
