@@ -33,24 +33,26 @@ namespace R03BMI
             }
             
             bmi = weight / (height * height);
+            bmi = bmi * 10;
             double BMI = Math.Round(bmi);
+            BMI = BMI / 10;
 
-            if (bmi < 18.5)
+            if (BMI < 18.5)
             {
                 result.Text = "身長" + height + ",体重" + weight + "の人のBMIは、" + BMI + "低体重(瘦せ)です";
             }
-            else if (bmi < 25)
+            else if (BMI < 25)
             {
                 result.Text = "身長" + height + ",体重" + weight + "の人のBMIは、" + BMI + "普通体重です";
             }
-            else if (bmi < 30)
+            else if (BMI < 30)
             {
                 result.Text = "身長" + height + ",体重" + weight + "の人のBMIは、" + BMI + "肥満(1度)です";
             }
-            else if (bmi < 35)
+            else if (BMI < 35)
             {
                 result.Text = "身長" + height + ",体重" + weight + "の人のBMIは、" + BMI + "肥満(2度)です";
-            }else if (bmi < 40)
+            }else if (BMI < 40)
             {
                 result.Text = "身長" + height + ",体重" + weight + "の人のBMIは、" + BMI + "肥満(3度)です";
             }
